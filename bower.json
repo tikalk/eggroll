@@ -1,0 +1,21 @@
+{
+  "name": "angular-fullstack-gulp",
+  "version": "0.0.1",
+  "homepage": "",
+  "authors": [
+    "Oren Farhi"
+  ],
+  "private": true,
+  "dependencies": {
+    
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+  }
+}
