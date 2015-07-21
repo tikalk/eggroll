@@ -9,19 +9,20 @@
   ],
   "description": "",
   "scripts": {
-    "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base build",
+    "dev": "webpack-dev-server --port 3000 --devtool eval --progress --hot --colors --content-base build",
     "test": "gulp test"
   },
   "keywords": [],
   "dependencies": {},
   "devDependencies": {
     "css-loader": "^0.15.5",
+    "material-design-lite": "^1.0.0-3",
     "node-libs-browser": "^0.5.2",
     "style-loader": "^0.12.3",
     "webpack": "^1.10.1"
   },
   "bundledDependencies": [],
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.x"
   }
 }
