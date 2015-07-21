@@ -33,7 +33,7 @@ function saveStory ( story ) {
         contents: Base64.encode(JSON.stringify(story))
     }
     if($_TOKEN.length > 0){
-        httpReq.ajaxPost(postParams, {}, "https://api.github.com/repos/tikalk/eggroll/contents/tests", $_TOKEN).then(function(data){
+        httpReq.ajaxPut(postParams, {}, "https://api.github.com/repos/tikalk/eggroll/contents/tests", $_TOKEN).then(function(data){
             console.log(data);
         });
     }else {
