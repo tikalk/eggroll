@@ -6,7 +6,7 @@ module.exports = {
          * @param  {string} URL - ajax url
          * @return {promise}
          */
-        ajaxPost : function(postParams, Obj, URL)
+        ajaxPost : function(postParams, Obj, URL, Token)
         {
             var data = new FormData();
             for(param in postParams){
@@ -22,6 +22,7 @@ module.exports = {
             }
             return new Promise(function(resolve, reject) {
                 var xhr = new XMLHttpRequest();
+                xhr.setRequestHeader("Authorization", "token " + Token);
                 xhr.open('POST', URL , true);
                 xhr.onerror = function (e) {
                      alert("faild to connect the server");

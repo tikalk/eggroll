@@ -1,6 +1,4 @@
-var Vue = require('../../../node_modules/vue/dist/vue.min.js'),
-    httpReq = require('./httpReq.js');
-    require('./base64.js');
+var Vue = require('../../../node_modules/vue/dist/vue.min.js');
     require('../../../node_modules/material-design-lite/material.min.js');
     require('../common/user-story.js');
     /* rquire style */
@@ -8,7 +6,13 @@ var Vue = require('../../../node_modules/vue/dist/vue.min.js'),
     // require('./../styles/styles.css');
     // require('./../styles/layout.css');
 
+var $_GET = [],
+    $_TOKEN = '';
 
+window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(a,name,value){$_GET[name]=value;});
+if($_GET.hasOwnProperty("code")){
+   $_TOKEN = $_GET["code"];
+}
 //define Vue.js app
 var data = {
 	story: {
