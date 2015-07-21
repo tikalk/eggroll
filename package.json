@@ -13,7 +13,10 @@
     "test": "gulp test"
   },
   "keywords": [],
-  "dependencies": {},
+  "dependencies": {
+    "material-design-lite": "^1.0.0-3",
+    "vue": "^0.12.7"
+  },
   "devDependencies": {
     "css-loader": "^0.15.5",
     "node-libs-browser": "^0.5.2",
