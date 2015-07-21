@@ -61,10 +61,10 @@
 </style>
 </head>
 <body>
-	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-		<header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
-			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">User Story</span>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">User Story</span>
 				<div class="mdl-layout-spacer"></div>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -215,5 +215,23 @@
 
 </div>
 <script src="../../node_modules/material-design-lite/material.min.js"></script>
+<script type="text/x-template" id="user-story-template">
+    <h1>{{story.feature}}</h1>\
+    <div v-repeat="scenario:story.scenarios">\
+        <h3>Given</h3>\
+        <div v-repeat="assumption:story.given">\
+            {{assumption}}\
+        </div>
+        \
+        <div v-repeat="action:story.when">\
+            {{action}}\
+        </div>
+        \
+        <div v-repeat="assertion:story.then">\
+            {{assertion}}\
+        </div>
+        \
+    </div>
+</script>
 </body>
 </html>
