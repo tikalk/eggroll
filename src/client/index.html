@@ -22,7 +22,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>eGGroll</title>
+	<title>eGGroll </title>
 
 	<!-- Add to homescreen for Chrome on Android -->
 	<meta name="mobile-web-app-capable" content="yes">
@@ -61,10 +61,10 @@
 </style>
 </head>
 <body>
-	<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-		<header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
-			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">User Story</span>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+    <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">User Story</span>
 				<div class="mdl-layout-spacer"></div>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -86,17 +86,17 @@
 			</div>
 		</header>
 		<div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
-			<header class="demo-drawer-header">
-				<img src="images/user.jpg" class="demo-avatar">
+			<img src="assets/images/logo.jpg" class="demo-avatar">
+			<header class="demo-drawer-header">				
 				<div class="demo-avatar-dropdown">
-					<span>hello@email.com</span>
+					<span>meitalfed@email.com</span>
 					<div class="mdl-layout-spacer"></div>
 					<button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
 						<i class="material-icons">arrow_drop_down</i>
 					</button>
 					<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-						<button class="mdl-menu__item">hello@email.com</button>
-						<button class="mdl-menu__item">info@domain.net</button>
+						<button class="mdl-menu__item">orenf@email.com</button>
+						<button class="mdl-menu__item">shimi@domain.net</button>
 						<button class="mdl-menu__item">Add another account...</button>
 					</ul>
 				</div>
@@ -104,15 +104,7 @@
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>All Stories</a>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>New User Story</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">delete</i>Trash</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">report</i>Spam</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">forum</i>Forums</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">flag</i>Updates</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">local_offer</i>Promos</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">shopping_cart</i>Purchases</a>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">people</i>Social</a>
-				<div class="mdl-layout-spacer"></div>
-				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">help_outline</i></a>
+				
 			</nav>
 		</div>
 		<main class="mdl-layout__content mdl-color--grey-100">
@@ -223,5 +215,23 @@
 
 </div>
 <script src="../../node_modules/material-design-lite/material.min.js"></script>
+<script type="text/x-template" id="user-story-template">
+    <h1>{{story.feature}}</h1>\
+    <div v-repeat="scenario:story.scenarios">\
+        <h3>Given</h3>\
+        <div v-repeat="assumption:story.given">\
+            {{assumption}}\
+        </div>
+        \
+        <div v-repeat="action:story.when">\
+            {{action}}\
+        </div>
+        \
+        <div v-repeat="assertion:story.then">\
+            {{assertion}}\
+        </div>
+        \
+    </div>
+</script>
 </body>
 </html>
