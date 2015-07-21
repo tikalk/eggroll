@@ -10,6 +10,6 @@ gulp.task('webserver', function() {
       livereload: true,
       // directoryListing: true,
       // open: true,
-      port: 8001
+      port: 3000
     }));
 });

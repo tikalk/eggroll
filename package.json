@@ -11,7 +11,7 @@
   "scripts": {
     "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base build",
     "test": "gulp test",
-    "serve": "gulp webserver"
+    "serve": "gulp copy && gulp webserver"
   },
   "keywords": [],
   "dependencies": {

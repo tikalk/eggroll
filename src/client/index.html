@@ -45,7 +45,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="../../node_modules/material-design-lite/material.min.css">
+<link rel="stylesheet" href="material.min.css">
 <link rel="stylesheet" href="styles/styles.css">
 <link rel="stylesheet" href="styles/layout.css">
 <style>
@@ -105,7 +105,7 @@
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>All Stories</a>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>New User Story</a>
 				<a class="mdl-navigation__link" 
-				href="https://github.com/login/oauth/authorize?client_id=03e206014038b281ea85&redirect_uri=http://localhost:8001&scopes=repo,user">
+				href="https://github.com/login/oauth/authorize?client_id=03e206014038b281ea85&redirect_uri=http://localhost:3000/index.html&scopeאה=repo,user">
 					<i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Login With Github</a>
 				
 			</nav>
@@ -213,15 +213,17 @@
 		<!-- FORM ACTIONS -->
 		<!-- Accent-colored raised button with ripple -->
 		<div class="mdl-grid mdl-cell--12-col">
-			<button class="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+			<button class="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+				v-on="click: saveStory">
 				Save
 			</button>
 		</div>
 	</form>
 </script>
 
-	<script src="../../node_modules/material-design-lite/material.min.js"></script>
-	<script src="../../node_modules/vue/dist/vue.min.js"></script>
+	<script src="app/base64.js"></script>
+	<script src="material.min.js"></script>
+	<script src="vue.min.js"></script>
 	<script src="common/user-story.js"></script>
 	<script src="app/index.js"></script>
 </body>
