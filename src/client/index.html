@@ -61,10 +61,10 @@
 </style>
 </head>
 <body>
-<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-    <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout-title">User Story</span>
+	<div id="app" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+		<header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
+			<div class="mdl-layout__header-row">
+				<span class="mdl-layout-title">User Story</span>
 				<div class="mdl-layout-spacer"></div>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -104,6 +104,9 @@
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>All Stories</a>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>New User Story</a>
+				<a class="mdl-navigation__link" 
+				href="https://github.com/login/oauth/authorize?client_id=03e206014038b281ea85&redirect_uri=http://localhost:8001&scopes=repo,user">
+					<i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Login With Github</a>
 				
 			</nav>
 		</div>
@@ -113,125 +116,113 @@
 					<div class="mdl-layout-title mdl-color-text--grey-600">
 						<h3>The User Story</h3>
 					</div>
-					<!-- Simple Textfield -->
-					<form action="#">
-						<div class="mdl-card mdl-shadow--2dp eggroll-fullsize-card">
-							<div class="mdl-card__title">
-								<h2 class="mdl-card__title-text">Feature Description</h2>
-							</div>
-							<div class="mdl-cell mdl-cell--12-col">
-								<div class="mdl-cell--8-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-									<input class="mdl-textfield__input" type="text" id="sample1" />
-									<label class="mdl-textfield__label" for="sample1">Feature:</label>
-								</div>
-							</div>
-						</div>
+					
+					<user-story story="{{story}}"></user-story>
 
+				</div>
+			</div>
+		</main>
+			<!-- Colored FAB button with ripple -->
+		<button id="add-new-story" 
+			class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
+			title="Add New User Story">
+			<i class="material-icons">add</i>
+		</button>
 
-						<div class="mdl-card mdl-shadow--2dp eggroll-fullsize-card">
-							<div class="mdl-card__title">
-								<h2 class="mdl-card__title-text">Scenarios</h2>
-							</div>
-							<section class="scenario">
-								<div class="mdl-cell mdl-cell--12-col">
-									<div class="mdl-cell--8-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-										<input class="mdl-textfield__input" type="text" id="sample3" />
-										<label class="mdl-textfield__label" for="sample3">Scenario description:</label>
-									</div>
-								</div>
-								<div class="mdl-cell mdl-cell--12-col mdl-grid">
-									<div class="mdl-cell mdl-cell--1-col"></div>
-									<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-										<input class="mdl-textfield__input" type="text" id="sample3" />
-										<label class="mdl-textfield__label" for="sample3">begins with:</label>
-									</div>
-									<div class="mdl-cell mdl-cell--1-col">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-											<i class="material-icons">add</i>
-										</button>
-									</div>                  
-								</div>
-								<div class="mdl-cell mdl-cell--12-col mdl-grid">
-									<div class="mdl-cell mdl-cell--1-col"></div>
-									<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-										<input class="mdl-textfield__input" type="text" id="sample3" />
-										<label class="mdl-textfield__label" for="sample3">And:</label>
-									</div>
-								</div>
-								<div class="mdl-cell mdl-cell--12-col mdl-grid">
-									<div class="mdl-cell mdl-cell--1-col"></div>
-									<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-										<input class="mdl-textfield__input" type="text" id="sample3" />
-										<label class="mdl-textfield__label" for="sample3">Action to perform:</label>
-									</div>
-									<div class="mdl-cell mdl-cell--1-col">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-											<i class="material-icons">add</i>
-										</button>
-									</div>
-								</div>
-								<div class="mdl-cell mdl-cell--12-col mdl-grid">
-									<div class="mdl-cell mdl-cell--1-col"></div>
-									<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-										<input class="mdl-textfield__input" type="text" id="sample3" />
-										<label class="mdl-textfield__label" for="sample3">Results:</label>
-									</div>
-									<div class="mdl-cell mdl-cell--1-col">
-										<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-											<i class="material-icons">add</i>
-										</button>
-									</div>
-								</div>
-							</section>
-							
-							<div class="mdl-cell mdl-cell--12-col mdl-grid">
-								<!-- Accent-colored raised button with ripple -->
-								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-									Add Another Scenario
-								</button>
-							</div>
+	</div>
 
-						</div>
-						<!-- FORM ACTIONS -->
-						<!-- Accent-colored raised button with ripple -->
-						<div class="mdl-grid mdl-cell--12-col">
-							<button class="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
-								Save
-							</button>
-						</div>
-					</div>
-
-				</form>
-
-			</div>          
+<script type="text/x-template" id="user-story">
+	<form action="#">
+		<div class="mdl-card mdl-shadow--2dp eggroll-fullsize-card">
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text">Feature Description</h2>
+			</div>
+			<div class="mdl-cell mdl-cell--12-col">
+				<div class="mdl-cell--8-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+					<input class="mdl-textfield__input" type="text" id="sample1" v-model="story.feature">
+					<label class="mdl-textfield__label" for="sample1">Feature:</label>
+				</div>
+			</div>
 		</div>
-	</main>
-	<!-- Colored FAB button with ripple -->
-	<button id="add-new-story" 
-	class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored"
-	title="Add New User Story">
-	<i class="material-icons">add</i>
-</button>
 
-</div>
-<script src="../../node_modules/material-design-lite/material.min.js"></script>
-<script type="text/x-template" id="user-story-template">
-    <h1>{{story.feature}}</h1>\
-    <div v-repeat="scenario:story.scenarios">\
-        <h3>Given</h3>\
-        <div v-repeat="assumption:story.given">\
-            {{assumption}}\
-        </div>
-        \
-        <div v-repeat="action:story.when">\
-            {{action}}\
-        </div>
-        \
-        <div v-repeat="assertion:story.then">\
-            {{assertion}}\
-        </div>
-        \
-    </div>
+
+		<div class="mdl-card mdl-shadow--2dp eggroll-fullsize-card">
+			<div class="mdl-card__title">
+				<h2 class="mdl-card__title-text">Scenarios</h2>
+			</div>
+			<section class="scenario" v-repeat="story.scenarios">
+				<div class="mdl-cell mdl-cell--12-col">
+					<div class="mdl-cell--8-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="name">
+						<label class="mdl-textfield__label" for="sample3">Scenario description:</label>
+					</div>
+				</div>
+
+				<!-- GIVEN -->
+				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="given">
+					<div class="mdl-cell mdl-cell--1-col"></div>
+					<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="given">
+						<label class="mdl-textfield__label" for="sample3">Initial State:</label>
+					</div>
+					<div class="mdl-cell mdl-cell--1-col">
+						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab"
+							v-on="click: addGiven(scenario)">
+							<i class="material-icons">add</i>
+						</button>
+					</div>                  
+				</div>
+
+				<!-- WHEN -->
+				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="when">
+					<div class="mdl-cell mdl-cell--1-col"></div>
+					<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="when">
+						<label class="mdl-textfield__label" for="sample3">Action to perform:</label>
+					</div>
+					<div class="mdl-cell mdl-cell--1-col">
+						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+							<i class="material-icons">add</i>
+						</button>
+					</div>
+				</div>
+
+				<!-- THEN -->
+				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="then">
+					<div class="mdl-cell mdl-cell--1-col"></div>
+					<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="then">
+						<label class="mdl-textfield__label" for="sample3">Results:</label>
+					</div>
+					<div class="mdl-cell mdl-cell--1-col">
+						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+							<i class="material-icons">add</i>
+						</button>
+					</div>
+				</div>
+			</section>
+			
+			<div class="mdl-cell mdl-cell--12-col mdl-grid" v-on="click: addScenario">
+				<!-- Accent-colored raised button with ripple -->
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+					Add Another Scenario
+				</button>
+			</div>
+
+		</div>
+		<!-- FORM ACTIONS -->
+		<!-- Accent-colored raised button with ripple -->
+		<div class="mdl-grid mdl-cell--12-col">
+			<button class="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+				Save
+			</button>
+		</div>
+	</form>
 </script>
+
+	<script src="../../node_modules/material-design-lite/material.min.js"></script>
+	<script src="../../node_modules/vue/dist/vue.min.js"></script>
+	<script src="common/user-story.js"></script>
+	<script src="app/index.js"></script>
 </body>
 </html>
