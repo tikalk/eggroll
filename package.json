@@ -11,7 +11,8 @@
   "scripts": {
     "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base build",
     "test": "gulp test",
-    "serve": "gulp copy && gulp webserver"
+    "serve": "gulp copy && gulp webserver",
+    "dev": "webpack-dev-server --port 3000 --devtool eval --progress --hot --colors --content-base build"
   },
   "keywords": [],
   "dependencies": {
@@ -29,6 +30,6 @@
   },
   "bundledDependencies": [],
   "engines": {
-    "node": "0.10.x"
+    "node": "0.12.x"
   }
 }
