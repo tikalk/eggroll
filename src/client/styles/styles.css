@@ -1,4 +1,4 @@
-/**
+  /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -48,7 +48,7 @@ html, body {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding: 0 16px 16px; 
+  padding: 0 16px 16px;
 }
 .demo-avatar-dropdown {
   display: -webkit-box;
@@ -71,8 +71,8 @@ html, body {
 .demo-navigation {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 .demo-layout .demo-navigation .mdl-navigation__link {
   display: -webkit-box !important;
@@ -82,12 +82,12 @@ html, body {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: rgba(255, 255, 255, 0.56);
   font-weight: 500;
 }
@@ -139,10 +139,10 @@ html, body {
  * not float around outside their container in IE10/11.
  * Using a browserhacks.com solution for now.
  */
-_:-ms-input-placeholder, :root .demo-graphs {
+-ms-input-placeholder, :root .demo-graphs {
   min-height: 664px;
 }
-_:-ms-input-placeholder, :root .demo-graph {
+-ms-input-placeholder, :root .demo-graph {
   max-height: 300px;
 }
 /* TODO end */

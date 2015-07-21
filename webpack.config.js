@@ -3,7 +3,7 @@ var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 
 var config = {
-  devtool: 'eval',
+  devtool: "source-map",
   entry: ['webpack/hot/dev-server', './src/client/app/index.js'],
   resolve: { alias: {} },
   output: {
