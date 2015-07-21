@@ -1,29 +1,19 @@
 {
-  "name": "angular-fullstack-gulp",
+  "name": "eggroll",
   "preferGlobal": false,
   "version": "0.0.1",
   "author": [
-    "Oren Farhi"
+    "Oren Farhi",
+    "Meital Federgreen",
+    "Shimi Bar"
   ],
-  "description": "Boilerplate for javascript fullstack with: expressjs, angularjs and gulp and gulp-dogen (based on angular fullstack and many other goodies).",
-  "contributors": [
-    {
-      "name": "Oren Farhi"
-    }
-  ],
+  "description": "",
   "scripts": {
     "start": "NODE_ENV='production' node src/server/server.js",
     "test": "gulp test"
   },
-  "main": "server/server.js",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
   "keywords": [],
   "dependencies": {
-    "angular-ui-bootstrap": "^0.12.1",
-    "angular-ui-router": "^0.2.15",
     "body-parser": "~1.5.0",
     "composable-middleware": "^0.3.0",
     "compression": "~1.0.1",
@@ -47,8 +37,6 @@
     "winston": "^0.8.1"
   },
   "devDependencies": {
-    "angular": "^1.4.2",
-    "angular-translate": "^2.7.2",
     "browserify": "^10.2.4",
     "browserify-ngannotate": "^1.0.1",
     "chai": "*",
@@ -93,12 +81,12 @@
     "karma-ng-scenario": "*",
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-teamcity-reporter": "^0.1.2",
+    "material-design-lite": "^1.0.0-3",
     "mocha-teamcity-reporter": "*",
     "protractor": "^1.4.0",
     "run-sequence": "*",
     "should": "^4.3.0",
     "sinon": "^1.12.2",
-    "spritesmith": "^1.0.3",
     "supertest": "^0.15.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
