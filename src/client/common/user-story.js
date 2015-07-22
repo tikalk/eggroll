@@ -26,7 +26,7 @@ if($_GET.hasOwnProperty("code")){
 
 function saveStory ( story ) {
     event.preventDefault();
-    console.log("submit");
+
     var postParams = {
         path: 'tests',
         message: 'added a test by eggroll.io',

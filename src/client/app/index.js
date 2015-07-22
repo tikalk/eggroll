@@ -6,13 +6,7 @@ var Vue = require('../../../node_modules/vue/dist/vue.min.js');
     // require('./../styles/styles.css');
     // require('./../styles/layout.css');
 
-var $_GET = [],
-    $_TOKEN = '';
 
-window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(a,name,value){$_GET[name]=value;});
-if($_GET.hasOwnProperty("code")){
-   $_TOKEN = $_GET["code"];
-}
 //define Vue.js app
 var data = {
 	story: {
