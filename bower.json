@@ -7,7 +7,7 @@
   ],
   "private": true,
   "dependencies": {
-    
+    "octokat": "~0.4.10"
   },
   "ignore": [
     "**/.*",
@@ -16,6 +16,5 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

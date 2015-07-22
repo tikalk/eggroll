@@ -13,9 +13,17 @@ var UserStoryFactory = {
 }
 
 function saveStory (story) {
+	octoSave(story);
+	return;
+	var params = QueryStringToJSON(location.search);
+	if (!params.code) {
+		return;
+	}
+	var token = 'access_token=' + params.code;
 	var oReq = new XMLHttpRequest();
 	oReq.onload = reqListener;
-	oReq.open("put", "https://api.github.com/repos/tikalk/eggroll/contents/tests", true);
+	// oReq.setRequestHeader('access_token', params.code);
+	oReq.open("put", "https://api.github.com/repos/tikalk/eggroll/contents/tests?" + token, true);
 	oReq.send({
 		path: 'tests',
 		message: 'added a test by eggroll.io',
@@ -34,7 +42,7 @@ Vue.component('user-story', {
     		this.story.scenarios.push(UserStoryFactory.scenario());
     		setTimeout(function () {
 	    		componentHandler.upgradeAllRegistered();
-    		}, 1000)
+    		}, 200)
     	},
 
     	addGiven: function (scenario) {
@@ -43,6 +51,9 @@ Vue.component('user-story', {
     	},
     	saveStory: function () {
     		saveStory(this.story);
+    	},
+    	isInProgress: function () {
+    		return this.story.inProgress;
     	}
     }
 });

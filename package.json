@@ -17,6 +17,7 @@
   "keywords": [],
   "dependencies": {
     "material-design-lite": "^1.0.0-3",
+    "octokat": "^0.4.10",
     "vue": "^0.12.7"
   },
   "devDependencies": {

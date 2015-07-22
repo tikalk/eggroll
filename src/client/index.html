@@ -89,7 +89,8 @@
 			<img src="assets/images/logo.jpg" class="demo-avatar">
 			<header class="demo-drawer-header">				
 				<div class="demo-avatar-dropdown">
-					<span>meitalfed@email.com</span>
+					<user-profile user="{{ user }}"></user-profile>
+					
 					<div class="mdl-layout-spacer"></div>
 					<button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
 						<i class="material-icons">arrow_drop_down</i>
@@ -132,7 +133,7 @@
 	</div>
 
 <script type="text/x-template" id="user-story">
-	<form action="#">
+	<div action="#">
 		<div class="mdl-card mdl-shadow--2dp eggroll-fullsize-card">
 			<div class="mdl-card__title">
 				<h2 class="mdl-card__title-text">Feature Description</h2>
@@ -150,19 +151,19 @@
 			<div class="mdl-card__title">
 				<h2 class="mdl-card__title-text">Scenarios</h2>
 			</div>
-			<section class="scenario" v-repeat="story.scenarios">
+			<section class="scenario" v-repeat="scenario: story.scenarios">
 				<div class="mdl-cell mdl-cell--12-col">
 					<div class="mdl-cell--8-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-						<input class="mdl-textfield__input" type="text" id="sample3" v-model="name">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="scenario.name">
 						<label class="mdl-textfield__label" for="sample3">Scenario description:</label>
 					</div>
 				</div>
 
 				<!-- GIVEN -->
-				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="given">
+				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="agiven: scenario.given">
 					<div class="mdl-cell mdl-cell--1-col"></div>
 					<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-						<input class="mdl-textfield__input" type="text" id="sample3" v-model="given">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="agiven">
 						<label class="mdl-textfield__label" for="sample3">Initial State:</label>
 					</div>
 					<div class="mdl-cell mdl-cell--1-col">
@@ -174,10 +175,10 @@
 				</div>
 
 				<!-- WHEN -->
-				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="when">
+				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="awhen: scenario.when">
 					<div class="mdl-cell mdl-cell--1-col"></div>
 					<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-						<input class="mdl-textfield__input" type="text" id="sample3" v-model="when">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="awhen">
 						<label class="mdl-textfield__label" for="sample3">Action to perform:</label>
 					</div>
 					<div class="mdl-cell mdl-cell--1-col">
@@ -188,10 +189,10 @@
 				</div>
 
 				<!-- THEN -->
-				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="then">
+				<div class="mdl-cell mdl-cell--12-col mdl-grid" v-repeat="athen: scenario.then">
 					<div class="mdl-cell mdl-cell--1-col"></div>
 					<div class="mdl-cell mdl-cell--5-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-						<input class="mdl-textfield__input" type="text" id="sample3" v-model="then">
+						<input class="mdl-textfield__input" type="text" id="sample3" v-model="athen">
 						<label class="mdl-textfield__label" for="sample3">Results:</label>
 					</div>
 					<div class="mdl-cell mdl-cell--1-col">
@@ -211,6 +212,9 @@
 
 		</div>
 		<!-- FORM ACTIONS -->
+		<!-- MDL Progress Bar with Indeterminate Progress -->
+		<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate progress-demo mdl-grid"
+			v-show="isInProgress()"></div>
 		<!-- Accent-colored raised button with ripple -->
 		<div class="mdl-grid mdl-cell--12-col">
 			<button class="mdl-cell--12-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
@@ -218,13 +222,19 @@
 				Save
 			</button>
 		</div>
-	</form>
+
+	</div>
 </script>
 
+<script type="text/x-template" id="user-profile">
+	<span>HELLO {{ user.owner.login }}</span>
+</script>
 	<script src="app/base64.js"></script>
+	<script src="octokat.js"></script>
 	<script src="material.min.js"></script>
 	<script src="vue.min.js"></script>
 	<script src="common/user-story.js"></script>
+	<script src="common/user-profile.js"></script>
 	<script src="app/index.js"></script>
 </body>
 </html>
