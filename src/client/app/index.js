@@ -38,10 +38,13 @@ function start () {
 
 function github () {
 	var params = QueryStringToJSON();
-	var token = params.code && params.code.length? params.code : '';
+	var code = params.code && params.code.length? params.code : '';
+	// authGithub(code);
+	// return;
 	data.github = new Octokat({
 		username: '',
 		password: ''
+		// token: token
 	});
 	data.repo = data.github.repos('tikalk', 'eggroll')
 		.fetch()
@@ -52,6 +55,45 @@ function github () {
 		})
 }
 
+function authGithub (code) {
+	// var http = new XMLHttpRequest();
+	var url = "https://github.com/login/oauth/access_token";
+	// var params = "lorem=ipsum&name=binny";
+	var params = [
+		'client_id=03e206014038b281ea85',
+		// 'redirect_uri=http://localhost:3000/index.html',
+		'code=' + code,
+		'client_secret=1eb32d50eb2654aa755a9f7b34c6de987cfc1b49',
+	]
+	jQuery.ajax({
+		// type: 'POST',
+		url: url,
+		crossDomain: true,
+		data: params.join('&'),
+		jsonp: 'onAuthLoad',
+		jsonpCallback: function (res) {
+			console.log('res', res);
+		}
+	})
+	// http.open("POST", url, true);
+
+	//Send the proper header information along with the request
+	// http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	// http.setRequestHeader("Content-length", params.length);
+	// http.setRequestHeader("Connection", "close");
+
+	// http.onreadystatechange = function() {//Call a function when the state changes.
+	//     if(http.readyState == 4 && http.status == 200) {
+	//         alert(http.responseText);
+	//     }
+	// }
+	// http.send(params.join('&'));
+	
+}
+
+function onAuthLoad (res) {
+	console.log('res', res);
+}
 function QueryStringToJSON() {            
     var pairs = location.search.slice(1).split('&');
     

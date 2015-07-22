@@ -106,7 +106,7 @@
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">home</i>All Stories</a>
 				<a class="mdl-navigation__link" href=""><i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>New User Story</a>
 				<a class="mdl-navigation__link" 
-				href="https://github.com/login/oauth/authorize?client_id=03e206014038b281ea85&redirect_uri=http://localhost:3000/index.html&scopeאה=repo,user">
+				href="https://github.com/login/oauth/authorize?client_id=03e206014038b281ea85&redirect_uri=http://localhost:3000/index.html&scope=repo,user">
 					<i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Login With Github</a>
 				
 			</nav>
@@ -229,6 +229,7 @@
 <script type="text/x-template" id="user-profile">
 	<span>HELLO {{ user.owner.login }}</span>
 </script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="app/base64.js"></script>
 	<script src="octokat.js"></script>
 	<script src="material.min.js"></script>
