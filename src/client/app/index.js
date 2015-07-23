@@ -41,9 +41,12 @@ function github () {
 	var code = params.code && params.code.length? params.code : '';
 	// authGithub(code);
 	// return;
+	if (!data.user.name && !data.user.pass) {
+		return;
+	}
 	data.github = new Octokat({
-		username: '',
-		password: ''
+		username: data.user.name,
+		password: data.user.password
 		// token: token
 	});
 	data.repo = data.github.repos('tikalk', 'eggroll')
@@ -66,13 +69,17 @@ function authGithub (code) {
 		'client_secret=1eb32d50eb2654aa755a9f7b34c6de987cfc1b49',
 	]
 	jQuery.ajax({
-		// type: 'POST',
 		url: url,
-		crossDomain: true,
+		// type: 'POST',
+		dataType: 'jsonp',
+		// crossDomain: true,
 		data: params.join('&'),
-		jsonp: 'onAuthLoad',
-		jsonpCallback: function (res) {
-			console.log('res', res);
+		// jsonp: 'onAuthLoad',
+		success: function (res) {
+			console.log('success', res);
+		},
+		error: function (res) {
+			console.log('error', res);
 		}
 	})
 	// http.open("POST", url, true);
@@ -114,8 +121,8 @@ function octoSave (story) {
 	  // branch: 'gh-pages'
 	};
 	var path = 'tests/' + story.feature.replace(/\s/gim, '') + '.feature';
-	if (story.info && story.info.commit) {
-		config.sha = story.info.commit.sha;
+	if (story.info && story.info.content) {
+		config.sha = story.info.content.sha;
 		path = story.info.content.path;
 	}
 	// data.user.current.contents('tests').read()

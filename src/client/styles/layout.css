@@ -2,3 +2,9 @@
 	width: 90%;
 	margin: 50px auto;
 }
+#user-menu .mdl-menu {
+	width: 200px;
+}
+.repo-card {
+	width: auto;
+}

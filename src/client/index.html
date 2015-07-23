@@ -95,11 +95,6 @@
 					<button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
 						<i class="material-icons">arrow_drop_down</i>
 					</button>
-					<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="accbtn">
-						<button class="mdl-menu__item">orenf@email.com</button>
-						<button class="mdl-menu__item">shimi@domain.net</button>
-						<button class="mdl-menu__item">Add another account...</button>
-					</ul>
 				</div>
 			</header>
 			<nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
@@ -110,6 +105,27 @@
 					<i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Login With Github</a>
 				
 			</nav>
+			<div class="mdl-card mdl-shadow--2dp repo-card">
+			  <div class="mdl-card__title">
+			    <h2 class="mdl-card__title-text">Github Credentials</h2>
+			  </div>
+			  <div class="mdl-card__supporting-text">
+			    We need this in order to save the stories to your github repo.
+			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+			        <input class="mdl-textfield__input" type="text" v-model="user.name">
+			        <label class="mdl-textfield__label" for="sample3">Username</label>
+			      </div>
+
+			     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+			         <input class="mdl-textfield__input" type="password" v-model="user.password">
+			         <label class="mdl-textfield__label" for="sample3">Password</label>
+			       </div>
+			  </div>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+					v-connect-github>
+				  Connect
+				</button>
+			</div>
 		</div>
 		<main class="mdl-layout__content mdl-color--grey-100">
 			<div class="mdl-grid">
@@ -236,6 +252,7 @@
 	<script src="vue.min.js"></script>
 	<script src="common/user-story.js"></script>
 	<script src="common/user-profile.js"></script>
+	<script src="common/connect-github.js"></script>
 	<script src="app/index.js"></script>
 </body>
 </html>
