@@ -64,7 +64,7 @@
 	<div id="app" class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 		<header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600">
 			<div class="mdl-layout__header-row">
-				<span class="mdl-layout-title">User Story</span>
+				<span class="mdl-layout-title">eGGroll - User Stories Creator</span>
 				<div class="mdl-layout-spacer"></div>
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
 					<label class="mdl-button mdl-js-button mdl-button--icon" for="search">
@@ -105,37 +105,31 @@
 					<i class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Login With Github</a>
 				
 			</nav>
-			<div class="mdl-card mdl-shadow--2dp repo-card">
-			  <div class="mdl-card__title">
-			    <h2 class="mdl-card__title-text">Github Credentials</h2>
-			  </div>
-			  <div class="mdl-card__supporting-text">
-			    We need this in order to save the stories to your github repo.
-			    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-			        <input class="mdl-textfield__input" type="text" v-model="user.name">
-			        <label class="mdl-textfield__label" for="sample3">Username</label>
-			      </div>
-
-			     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-			         <input class="mdl-textfield__input" type="password" v-model="user.password">
-			         <label class="mdl-textfield__label" for="sample3">Password</label>
-			       </div>
-			  </div>
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-					v-connect-github>
-				  Connect
-				</button>
-			</div>
+			
 		</div>
 		<main class="mdl-layout__content mdl-color--grey-100">
 			<div class="mdl-grid">
 				<div class="mdl-cell mdl-cell--12-col">
-					<div class="mdl-layout-title mdl-color-text--grey-600">
-						<h3>The User Story</h3>
-					</div>
-					
-					<user-story story="{{story}}"></user-story>
+					<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+					  <div class="mdl-tabs__tab-bar">
+					      <a href="#starks-panel" class="mdl-tabs__tab is-active">Story</a>
+					      <a href="#lannisters-panel" class="mdl-tabs__tab">Github</a>
+					      <a href="#targaryens-panel" class="mdl-tabs__tab">Targaryens</a>
+					  </div>
 
+					  <div class="mdl-tabs__panel is-active" id="starks-panel">
+					    <user-story story="{{ story }}"></user-story>
+					  </div>
+					  <div class="mdl-tabs__panel" id="lannisters-panel">
+					    <github-picker data="{{ github }}" on-repo-pick="{{ updateRepo }}"></github-picker>
+					  </div>
+					  <div class="mdl-tabs__panel" id="targaryens-panel">
+					    <ul>
+					      <li>Viserys</li>
+					      <li>Daenerys</li>
+					    </ul>
+					  </div>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -245,6 +239,49 @@
 <script type="text/x-template" id="user-profile">
 	<span>HELLO {{ user.owner.login }}</span>
 </script>
+
+<script type="text/x-template" id="github-picker">
+	<div class="mdl-card mdl-shadow--2dp repo-card"
+		v-show="repos === undefined">
+	  <div class="mdl-card__title">
+	    <h2 class="mdl-card__title-text">Github Credentials</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+	    <p>
+	    	We need this in order to save the stories to your github repo.
+	    </p>
+	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+	        <input class="mdl-textfield__input" type="text" v-model="user.name">
+	        <label class="mdl-textfield__label" for="sample3">Username</label>
+	    </div>
+
+	     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+	         <input class="mdl-textfield__input" type="password" v-model="user.password">
+	         <label class="mdl-textfield__label" for="sample3">Password</label>
+	       </div>
+	  	 </div>
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+			Xv-connect-github v-on="click: createUser">
+		  Connect
+		</button>
+	</div>
+
+		<ul>
+			<li v-repeat="repo: repos">
+				<div href="{{repo.url}}" target="_blank">
+					<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-button--mini-fab"
+						v-on="click: pickRepo(repo)">
+					  <i class="material-icons">create</i>
+					</button>
+					{{repo.name }} 
+					<div id="{{repo.id}}" class="icon material-icons">open_in_new</div>
+					<div class="mdl-tooltip" for="{{repo.id}}">
+					{{repo.url }}
+					</div>
+				</div>
+			</li>
+		</ul>
+</script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="app/base64.js"></script>
 	<script src="octokat.js"></script>
@@ -253,6 +290,8 @@
 	<script src="common/user-story.js"></script>
 	<script src="common/user-profile.js"></script>
 	<script src="common/connect-github.js"></script>
+	<script src="common/github-user.js"></script>
+	<script src="common/resources/github-picker.js"></script>
 	<script src="app/index.js"></script>
 </body>
 </html>

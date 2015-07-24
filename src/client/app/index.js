@@ -18,6 +18,13 @@ var data = {
 		owner: {}
 	},
 	github: {
+		user: {
+			name: '',
+			password: ''
+		},
+		current: {
+			repo: ''
+		}
 	},
 	repo: {}
 };
@@ -30,7 +37,14 @@ function start () {
 
 	return new Vue({
 		el: '#app',
-		data: data
+		data: data,
+		methods: {
+			updateRepo: function (repo, user) {
+				data.user = user;
+				data.github.current.repo = repo.name;
+				github();
+			}
+		}
 	});
 
 
@@ -49,7 +63,7 @@ function github () {
 		password: data.user.password
 		// token: token
 	});
-	data.repo = data.github.repos('tikalk', 'eggroll')
+	data.repo = data.github.repos(data.user.name, data.github.current.repo)
 		.fetch()
 		.then(function (repo) {
 			data.user.owner = repo.owner;
@@ -149,19 +163,32 @@ function storyToText (story) {
 	var text = [];
 	text.push('Feature: ' + story.feature + '\n\n');
 	story.scenarios.forEach(function (scenario) {
+		var clauses = [
+			{ key: 'given', prefix: 'Given ', plural: 'And ' },
+			{ key: 'when', prefix: 'When ', plural: 'And ' },
+			{ key: 'then', prefix: 'Then ', plural: 'And ' }
+		];
 		text.push('\t' + 'Scenario: ' + scenario.name + '\n');
-		scenario.given.forEach(function (given, index) {
-			var prefix = index === 0 ? 'Given ' : 'And ';
-			text.push('\t\t' + prefix + given + '\n');
-		});
-		scenario.when.forEach(function (when, index) {
-			var prefix = index === 0 ? 'When ' : 'And ';
-			text.push('\t\t' + prefix + when + '\n');
-		});
-		scenario.then.forEach(function (then, index) {
-			var prefix = index === 0 ? 'Then ' : 'And ';
-			text.push('\t\t' + prefix + then + '\n');
-		});
+		
+		clauses.forEach(function (clause) {
+			scenario[clause.key].forEach(function (prefix, index) {
+				prepareClause(prefix, index, clause.prefix, clause.plural);
+			})
+		})
+		// scenario.given.forEach(function (given, index) {
+		// 	prepareClause(given, index, 'Given ', 'And ');
+		// });
+		// scenario.when.forEach(function (when, index) {
+		// 	prepareClause(when, index, 'When ', 'And ');
+		// });
+		// scenario.then.forEach(function (then, index) {
+		// 	prepareClause(then, index, 'Then ', 'And ');
+		// });
 	});
+
+	function prepareClause (clause, index, prefix, pluralPrefix) {
+		var finalPrefix = index === 0 ? prefix : pluralPrefix;
+		text.push('\t\t' + finalPrefix + clause + '\n');
+	}
 	return text.join('');
 }
