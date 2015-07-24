@@ -112,21 +112,21 @@
 				<div class="mdl-cell mdl-cell--12-col">
 					<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
 					  <div class="mdl-tabs__tab-bar">
-					      <a href="#starks-panel" class="mdl-tabs__tab is-active">Story</a>
-					      <a href="#lannisters-panel" class="mdl-tabs__tab">Github</a>
-					      <a href="#targaryens-panel" class="mdl-tabs__tab">Targaryens</a>
+					      <a href="#github-panel" class="mdl-tabs__tab is-active">Github</a>
+					      <a href="#new-story-panel" class="mdl-tabs__tab">New Story</a>
+					      <a href="#settings-panel" class="mdl-tabs__tab">Settings</a>
 					  </div>
 
-					  <div class="mdl-tabs__panel is-active" id="starks-panel">
-					    <user-story story="{{ story }}"></user-story>
-					  </div>
-					  <div class="mdl-tabs__panel" id="lannisters-panel">
+					  <div class="mdl-tabs__panel is-active" id="github-panel">
 					    <github-picker data="{{ github }}" on-repo-pick="{{ updateRepo }}"></github-picker>
 					  </div>
-					  <div class="mdl-tabs__panel" id="targaryens-panel">
+					  <div class="mdl-tabs__panel" id="new-story-panel">
+					    <user-story story="{{ story }}"></user-story>
+					  </div>
+					  <div class="mdl-tabs__panel" id="settings-panel">
 					    <ul>
-					      <li>Viserys</li>
-					      <li>Daenerys</li>
+					      <li>to be</li>
+					      <li>continued</li>
 					    </ul>
 					  </div>
 					</div>
@@ -237,7 +237,7 @@
 </script>
 
 <script type="text/x-template" id="user-profile">
-	<span>HELLO {{ user.owner.login }}</span>
+	<span>HELLO {{ user.name }}</span>
 </script>
 
 <script type="text/x-template" id="github-picker">
@@ -265,6 +265,13 @@
 		  Connect
 		</button>
 	</div>
+		
+		<button v-if="repos !== undefined" 
+			v-on="click: signOutUser"
+			class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+			title="Add New User Story">
+			Sign Out
+		</button>
 
 		<ul>
 			<li v-repeat="repo: repos">

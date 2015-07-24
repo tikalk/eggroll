@@ -22,11 +22,9 @@ var data = {
 			name: '',
 			password: ''
 		},
-		current: {
-			repo: ''
-		}
 	},
-	repo: {}
+	repo: {},
+	currentRepo: {}
 };
 
 start();
@@ -41,7 +39,7 @@ function start () {
 		methods: {
 			updateRepo: function (repo, user) {
 				data.user = user;
-				data.github.current.repo = repo.name;
+				data.currentRepo = repo;
 				github();
 			}
 		}
@@ -63,7 +61,7 @@ function github () {
 		password: data.user.password
 		// token: token
 	});
-	data.repo = data.github.repos(data.user.name, data.github.current.repo)
+	data.repo = data.github.repos(data.user.name, data.currentRepo.name)
 		.fetch()
 		.then(function (repo) {
 			data.user.owner = repo.owner;

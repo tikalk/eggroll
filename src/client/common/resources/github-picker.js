@@ -16,7 +16,13 @@ Vue.component('github-picker', {
 
     	pickRepo: function (repo) {
     		this.onRepoPick(repo, this.user);
-    	}
+    	},
+
+        signOutUser: function () {
+            this.repos = undefined;
+            this.user.name = '';
+            this.user.password = '';
+        }
     },
     directives: ['connect-github']
 });
