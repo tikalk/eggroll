@@ -1,9 +1,12 @@
-function GithubUser (user) {
+import Octokat from 'octokat';
+
+module.exports = function GithubUser (user) {
 	var octo;
 	var octoUser;
 	var service = {
 		create: create,
-		repos: repos
+		repos: repos,
+		orgs: orgs
 	};
 	activate();
 
@@ -23,6 +26,10 @@ function GithubUser (user) {
 
 	function repos () {
 		return octoUser.repos.fetch();
+	}
+
+	function orgs () {
+		return octoUser.orgs().fetch();
 	}
 }
 

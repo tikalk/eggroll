@@ -1,18 +1,17 @@
 {
   "name": "eggroll",
-  "preferGlobal": false,
   "version": "0.0.1",
   "author": [
     "Oren Farhi",
     "Meital Federgreen",
     "Shimi Bar"
   ],
-  "description": "",
+  "description": "a ui editor for writing cucumber specs and save it to github",
   "scripts": {
-    "start": "webpack-dev-server --devtool eval --progress --hot --colors --content-base build",
+    "start": "gulp copy && gulp webserver",
     "test": "gulp test",
-    "serve": "gulp copy && gulp webserver",
-    "dev": "webpack-dev-server --port 3000 --devtool eval --progress --hot --colors --content-base build"
+    "bundle": "browserify src/client/app/index.js -d -t babelify -p [minifyify --map bundle.map.json  --output .tmp/bundle.map.json] --outfile .tmp/bundle.js",
+    "bundle-watch": "watchify -d -v -t babelify -e src/client/app/index.js -p [minifyify --map bundle.map.json  --output .tmp/bundle.map.json] -o .tmp/bundle.js"
   },
   "keywords": [],
   "dependencies": {
@@ -21,12 +20,17 @@
     "vue": "^0.12.7"
   },
   "devDependencies": {
+    "babelify": "^6.1.3",
+    "browserify": "^11.0.1",
     "css-loader": "^0.15.5",
     "gulp": "^3.9.0",
     "gulp-webserver": "^0.9.1",
     "material-design-lite": "^1.0.0-3",
+    "minifyify": "^7.0.5",
     "node-libs-browser": "^0.5.2",
+    "partialify": "^3.1.5",
     "style-loader": "^0.12.3",
+    "watchify": "^3.3.1",
     "webpack": "^1.10.1"
   },
   "bundledDependencies": [],

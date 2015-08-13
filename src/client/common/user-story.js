@@ -1,3 +1,7 @@
+import Vue from 'vue';
+import octoSave from './resources/github-saver.js';
+import Base64 from '../app/base64.js';
+
 var UserStoryFactory = {
 	scenario: function () {
 		return {
@@ -34,7 +38,7 @@ function saveStory (story) {
 		console.log('response', response);
 	}
 }
-Vue.component('user-story', {
+module.exports = Vue.component('user-story', {
     props: ['story'],
     template: '#user-story',
     methods: {

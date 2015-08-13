@@ -1,6 +1,18 @@
-Vue.component('github-picker', {
+import Vue from 'vue';
+import GithubUser from '../github-user.js';
+import template from './github-picker.html';
+
+module.exports = Vue.component('github-picker', {
     props: ['data', 'repos', 'on-repo-pick'],
-    template: '#github-picker',
+    // data: function() {
+    //     return {
+    //         user: {
+    //             name: '',
+    //             password: ''
+    //         }
+    //     }
+    // },
+    template: template,
     methods: {
     	createUser: function () {
     		this.githubUser = GithubUser(this.user);
@@ -8,10 +20,11 @@ Vue.component('github-picker', {
     	},
 
     	fetchRepos: function () {
-    		this.githubUser.repos().then(function (response) {
-    			console.log('repose', response);
+    		this.githubUser.repos().then((response) => {
     			this.repos = response;
-    		}.bind(this));
+    		});
+            // debugger;
+            // this.githubUser.orgs();
     	},
 
     	pickRepo: function (repo) {
@@ -26,6 +39,3 @@ Vue.component('github-picker', {
     },
     directives: ['connect-github']
 });
-
-
-//////////////

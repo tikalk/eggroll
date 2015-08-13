@@ -89,7 +89,7 @@
 			<img src="assets/images/logo.jpg" class="demo-avatar">
 			<header class="demo-drawer-header">				
 				<div class="demo-avatar-dropdown">
-					<user-profile user="{{ user }}"></user-profile>
+					<user-profile user="{{ github.user }}"></user-profile>
 					
 					<div class="mdl-layout-spacer"></div>
 					<button id="accbtn" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
@@ -240,65 +240,8 @@
 	<span>HELLO {{ user.name }}</span>
 </script>
 
-<script type="text/x-template" id="github-picker">
-	<div class="mdl-card mdl-shadow--2dp repo-card"
-		v-show="repos === undefined">
-	  <div class="mdl-card__title">
-	    <h2 class="mdl-card__title-text">Github Credentials</h2>
-	  </div>
-	  <div class="mdl-card__supporting-text">
-	    <p>
-	    	We need this in order to save the stories to your github repo.
-	    </p>
-	    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-	        <input class="mdl-textfield__input" type="text" v-model="user.name">
-	        <label class="mdl-textfield__label" for="sample3">Username</label>
-	    </div>
-
-	     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
-	         <input class="mdl-textfield__input" type="password" v-model="user.password">
-	         <label class="mdl-textfield__label" for="sample3">Password</label>
-	       </div>
-	  	 </div>
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-			Xv-connect-github v-on="click: createUser">
-		  Connect
-		</button>
-	</div>
-		
-		<button v-if="repos !== undefined" 
-			v-on="click: signOutUser"
-			class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
-			title="Add New User Story">
-			Sign Out
-		</button>
-
-		<ul>
-			<li v-repeat="repo: repos">
-				<div href="{{repo.url}}" target="_blank">
-					<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored mdl-button--mini-fab"
-						v-on="click: pickRepo(repo)">
-					  <i class="material-icons">create</i>
-					</button>
-					{{repo.name }} 
-					<div id="{{repo.id}}" class="icon material-icons">open_in_new</div>
-					<div class="mdl-tooltip" for="{{repo.id}}">
-					{{repo.url }}
-					</div>
-				</div>
-			</li>
-		</ul>
-</script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="app/base64.js"></script>
-	<script src="octokat.js"></script>
 	<script src="material.min.js"></script>
-	<script src="vue.min.js"></script>
-	<script src="common/user-story.js"></script>
-	<script src="common/user-profile.js"></script>
-	<script src="common/connect-github.js"></script>
-	<script src="common/github-user.js"></script>
-	<script src="common/resources/github-picker.js"></script>
-	<script src="app/index.js"></script>
+	<script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>

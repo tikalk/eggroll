@@ -1,27 +1,28 @@
 var gulp = require('gulp');
 var browserify = require('browserify');
 var watchify = require('watchify');
+var babelify = require('babelify');
+var minifyify = require('minifyify');
+var partialify = require('partialify');
 var sourcemaps = require('gulp-sourcemaps');
 var buffer = require('vinyl-buffer')
 var source = require('vinyl-source-stream');
-var debowerify = require('debowerify');
-var ngAnnotate = require('browserify-ngannotate');
 
-// var browserifyShim = require('browserify-shim');
 var options = {
   entries: [
     'src/client/app/index.js'
   ],
   debug: true,
   transform: [
-    // debowerify,
-    ngAnnotate
+    partialify,
+    babelify
   ]
 };
 var bundler = {};
 
 module.exports = gulp.task('browserify', function () {
   bundler = browserify(options);
+  bundler.plugin('minifyify', {map: 'bundle.map.json', output: '.tmp/bundle.map.json'});
   return rebundle(bundler);
 });
 
