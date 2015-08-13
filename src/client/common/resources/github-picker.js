@@ -23,6 +23,7 @@ module.exports = Vue.component('github-picker', {
     		this.githubUser.repos().then((response) => {
     			this.repos = response;
     		});
+            // this.githubUser.orgs();
             // debugger;
             // this.githubUser.orgs();
     	},

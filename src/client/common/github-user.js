@@ -29,7 +29,7 @@ module.exports = function GithubUser (user) {
 	}
 
 	function orgs () {
-		return octoUser.orgs().fetch();
+		return octo.user.repos.fetch({ sort: 'updated' });
 	}
 }
 
