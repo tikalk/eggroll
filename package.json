@@ -12,7 +12,7 @@
     "test": "gulp test",
     "bundle": "browserify src/client/app/index.js -d -t babelify -p [minifyify --map bundle.map.json  --output .tmp/bundle.map.json] --outfile .tmp/bundle.js",
     "bundle-watch": "watchify -d -v -t babelify -e src/client/app/index.js -p [minifyify --map bundle.map.json  --output .tmp/bundle.map.json] -o .tmp/bundle.js",
-    "release": "gulp copy && gulp browserify:dev && gulp dist && git checkout gh-pages && gulp copy:dist"
+    "release": "gulp copy && gulp browserify && gulp dist && git checkout gh-pages && gulp copy:dist"
   },
   "keywords": [],
   "dependencies": {

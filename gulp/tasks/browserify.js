@@ -22,7 +22,7 @@ var bundler = {};
 
 module.exports = gulp.task('browserify', function () {
   bundler = browserify(options);
-  bundler.plugin('minifyify', {map: 'bundle.map.json', output: '.tmp/bundle.map.json'});
+  // bundler.plugin('minifyify', {map: 'bundle.map.json', output: '.tmp/bundle.map.json'});
   return rebundle(bundler);
 });
 
