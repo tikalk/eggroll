@@ -25,6 +25,7 @@
     "browserify": "^11.0.1",
     "css-loader": "^0.15.5",
     "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-webserver": "^0.9.1",
     "material-design-lite": "^1.0.0-3",
     "minifyify": "^7.0.5",
