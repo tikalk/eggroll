@@ -33,6 +33,7 @@
     "partialify": "^3.1.5",
     "style-loader": "^0.12.3",
     "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.1",
     "webpack": "^1.10.1"
   },
