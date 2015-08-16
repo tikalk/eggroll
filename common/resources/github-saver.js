@@ -1,5 +1,5 @@
 import data from './app.data.js';
-import Base64 from '../../app/base64.js';
+import { Base64 } from '../../app/base64.js';
 
 module.exports = function octoSave (story) {
 	var config = {
