@@ -4,9 +4,9 @@ module.exports = function GithubUser (user) {
 	var octo;
 	var octoUser;
 	var service = {
-		create: create,
-		repos: repos,
-		orgs: orgs
+		create,
+		repos,
+		orgs
 	};
 	activate();
 

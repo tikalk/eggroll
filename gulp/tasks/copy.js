@@ -10,9 +10,11 @@ gulp.task('copy', function () {
 	.pipe(gulp.dest('.tmp'))
 })
 
-gulp.task('copy:prod', function () {
-	return gulp.src(files)
-	.pipe('src/client');
+gulp.task('copy:dist', function () {
+	return gulp.src([
+		'dist/**/*'
+	])
+	.pipe(gulp.dest('./'));
 })
 function copyFonts(src, dest){
 	return gulp.src(src)
